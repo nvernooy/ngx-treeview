@@ -30,7 +30,7 @@ You can customize CSS yourself to break down dependencies to Bootstrap.
 After install the above dependencies, install `ngx-treeview` via:
 
 ```shell
-npm install ngx-treeview --save
+npm i @yberion/ngx-treeview
 ```
 
 Once installed you need to import our main module in your application module:
