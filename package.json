@@ -39,6 +39,9 @@
   "bugs": {
     "url": "https://github.com/yberion/ngx-treeview/issues"
   },
+  "pre-commit": [
+    "build"
+  ],
   "dependencies": {
     "@angular/animations": "~13.0.3",
     "@angular/common": "~13.0.3",
