@@ -1,0 +1,51 @@
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { TreeviewComponent } from '../treeview/treeview.component';
+import * as i0 from "@angular/core";
+import * as i1 from "../../models/treeview-i18n";
+import * as i2 from "../../models/treeview-config";
+import * as i3 from "../treeview/treeview.component";
+import * as i4 from "../../directives/dropdown.directive";
+import * as i5 from "../../directives/dropdown-toggle.directive";
+import * as i6 from "@angular/common";
+import * as i7 from "../../directives/dropdown-menu.directive";
+export class DropdownTreeviewComponent {
+    constructor(i18n, defaultConfig) {
+        this.i18n = i18n;
+        this.defaultConfig = defaultConfig;
+        this.buttonClass = 'btn-outline-secondary';
+        this.selectedChange = new EventEmitter(true);
+        this.filterChange = new EventEmitter();
+        this.config = this.defaultConfig;
+    }
+    onSelectedChange(values) {
+        this.buttonLabel = this.i18n.getText(this.treeviewComponent.selection);
+        this.selectedChange.emit(values);
+    }
+    onFilterChange(text) {
+        this.filterChange.emit(text);
+    }
+}
+DropdownTreeviewComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.0.3", ngImport: i0, type: DropdownTreeviewComponent, deps: [{ token: i1.TreeviewI18n }, { token: i2.TreeviewConfig }], target: i0.ɵɵFactoryTarget.Component });
+DropdownTreeviewComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.0.3", type: DropdownTreeviewComponent, selector: "ngx-dropdown-treeview", inputs: { buttonClass: "buttonClass", headerTemplate: "headerTemplate", itemTemplate: "itemTemplate", items: "items", config: "config" }, outputs: { selectedChange: "selectedChange", filterChange: "filterChange" }, viewQueries: [{ propertyName: "treeviewComponent", first: true, predicate: TreeviewComponent, descendants: true }], ngImport: i0, template: "<div class=\"dropdown\" ngxDropdown>\r\n  <button class=\"btn\" [ngClass]=\"buttonClass\" type=\"button\" role=\"button\" ngxDropdownToggle>\r\n    {{buttonLabel}}\r\n  </button>\r\n  <div ngxDropdownMenu aria-labelledby=\"dropdownMenu\" (click)=\"$event.stopPropagation()\">\r\n    <div class=\"dropdown-container\">\r\n      <ngx-treeview [config]=\"config\" [headerTemplate]=\"headerTemplate\" [items]=\"items\" [itemTemplate]=\"itemTemplate\"\r\n        (selectedChange)=\"onSelectedChange($event)\" (filterChange)=\"onFilterChange($event)\">\r\n      </ngx-treeview>\r\n    </div>\r\n  </div>\r\n</div>\r\n", styles: [".dropdown{width:100%;display:inline-block}.dropdown button{width:100%;margin-right:.9rem;text-align:left;overflow:hidden;padding-right:30px;text-overflow:ellipsis}.dropdown button:after{position:absolute;right:.6rem;margin-top:.6rem}.dropdown .dropdown-menu .dropdown-container{padding:0 .6rem}\n"], components: [{ type: i3.TreeviewComponent, selector: "ngx-treeview", inputs: ["headerTemplate", "itemTemplate", "items", "config"], outputs: ["selectedChange", "filterChange"] }], directives: [{ type: i4.DropdownDirective, selector: "[ngxDropdown]", inputs: ["open"], outputs: ["openChange"], exportAs: ["ngxDropdown"] }, { type: i5.DropdownToggleDirective, selector: "[ngxDropdownToggle]" }, { type: i6.NgClass, selector: "[ngClass]", inputs: ["class", "ngClass"] }, { type: i7.DropdownMenuDirective, selector: "[ngxDropdownMenu]" }] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.0.3", ngImport: i0, type: DropdownTreeviewComponent, decorators: [{
+            type: Component,
+            args: [{ selector: 'ngx-dropdown-treeview', template: "<div class=\"dropdown\" ngxDropdown>\r\n  <button class=\"btn\" [ngClass]=\"buttonClass\" type=\"button\" role=\"button\" ngxDropdownToggle>\r\n    {{buttonLabel}}\r\n  </button>\r\n  <div ngxDropdownMenu aria-labelledby=\"dropdownMenu\" (click)=\"$event.stopPropagation()\">\r\n    <div class=\"dropdown-container\">\r\n      <ngx-treeview [config]=\"config\" [headerTemplate]=\"headerTemplate\" [items]=\"items\" [itemTemplate]=\"itemTemplate\"\r\n        (selectedChange)=\"onSelectedChange($event)\" (filterChange)=\"onFilterChange($event)\">\r\n      </ngx-treeview>\r\n    </div>\r\n  </div>\r\n</div>\r\n", styles: [".dropdown{width:100%;display:inline-block}.dropdown button{width:100%;margin-right:.9rem;text-align:left;overflow:hidden;padding-right:30px;text-overflow:ellipsis}.dropdown button:after{position:absolute;right:.6rem;margin-top:.6rem}.dropdown .dropdown-menu .dropdown-container{padding:0 .6rem}\n"] }]
+        }], ctorParameters: function () { return [{ type: i1.TreeviewI18n }, { type: i2.TreeviewConfig }]; }, propDecorators: { buttonClass: [{
+                type: Input
+            }], headerTemplate: [{
+                type: Input
+            }], itemTemplate: [{
+                type: Input
+            }], items: [{
+                type: Input
+            }], config: [{
+                type: Input
+            }], selectedChange: [{
+                type: Output
+            }], filterChange: [{
+                type: Output
+            }], treeviewComponent: [{
+                type: ViewChild,
+                args: [TreeviewComponent, { static: false }]
+            }] } });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZHJvcGRvd24tdHJlZXZpZXcuY29tcG9uZW50LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vcHJvamVjdHMvbmd4LXRyZWV2aWV3L3NyYy9saWIvY29tcG9uZW50cy9kcm9wZG93bi10cmVldmlldy9kcm9wZG93bi10cmVldmlldy5jb21wb25lbnQudHMiLCIuLi8uLi8uLi8uLi8uLi8uLi9wcm9qZWN0cy9uZ3gtdHJlZXZpZXcvc3JjL2xpYi9jb21wb25lbnRzL2Ryb3Bkb3duLXRyZWV2aWV3L2Ryb3Bkb3duLXRyZWV2aWV3LmNvbXBvbmVudC5odG1sIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBRSxTQUFTLEVBQUUsWUFBWSxFQUFFLEtBQUssRUFBRSxNQUFNLEVBQUUsU0FBUyxFQUFlLE1BQU0sZUFBZSxDQUFDO0FBSS9GLE9BQU8sRUFBRSxpQkFBaUIsRUFBRSxNQUFNLGdDQUFnQyxDQUFDOzs7Ozs7Ozs7QUFTbkUsTUFBTSxPQUFPLHlCQUF5QjtJQVdwQyxZQUNTLElBQWtCLEVBQ2pCLGFBQTZCO1FBRDlCLFNBQUksR0FBSixJQUFJLENBQWM7UUFDakIsa0JBQWEsR0FBYixhQUFhLENBQWdCO1FBWjlCLGdCQUFXLEdBQUcsdUJBQXVCLENBQUM7UUFLckMsbUJBQWMsR0FBRyxJQUFJLFlBQVksQ0FBUSxJQUFJLENBQUMsQ0FBQztRQUMvQyxpQkFBWSxHQUFHLElBQUksWUFBWSxFQUFVLENBQUM7UUFRbEQsSUFBSSxDQUFDLE1BQU0sR0FBRyxJQUFJLENBQUMsYUFBYSxDQUFDO0lBQ25DLENBQUM7SUFFRCxnQkFBZ0IsQ0FBQyxNQUFhO1FBQzVCLElBQUksQ0FBQyxXQUFXLEdBQUcsSUFBSSxDQUFDLElBQUksQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLGlCQUFpQixDQUFDLFNBQVMsQ0FBQyxDQUFDO1FBQ3ZFLElBQUksQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLE1BQU0sQ0FBQyxDQUFDO0lBQ25DLENBQUM7SUFFRCxjQUFjLENBQUMsSUFBWTtRQUN6QixJQUFJLENBQUMsWUFBWSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUMvQixDQUFDOztzSEF6QlUseUJBQXlCOzBHQUF6Qix5QkFBeUIsdVVBUXpCLGlCQUFpQixnRENyQjlCLHFtQkFZQTsyRkRDYSx5QkFBeUI7a0JBTHJDLFNBQVM7K0JBQ0UsdUJBQXVCO2dJQUt4QixXQUFXO3NCQUFuQixLQUFLO2dCQUNHLGNBQWM7c0JBQXRCLEtBQUs7Z0JBQ0csWUFBWTtzQkFBcEIsS0FBSztnQkFDRyxLQUFLO3NCQUFiLEtBQUs7Z0JBQ0csTUFBTTtzQkFBZCxLQUFLO2dCQUNJLGNBQWM7c0JBQXZCLE1BQU07Z0JBQ0csWUFBWTtzQkFBckIsTUFBTTtnQkFDMEMsaUJBQWlCO3NCQUFqRSxTQUFTO3VCQUFDLGlCQUFpQixFQUFFLEVBQUUsTUFBTSxFQUFFLEtBQUssRUFBRSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IENvbXBvbmVudCwgRXZlbnRFbWl0dGVyLCBJbnB1dCwgT3V0cHV0LCBWaWV3Q2hpbGQsIFRlbXBsYXRlUmVmIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XHJcbmltcG9ydCB7IFRyZWV2aWV3STE4biB9IGZyb20gJy4uLy4uL21vZGVscy90cmVldmlldy1pMThuJztcclxuaW1wb3J0IHsgVHJlZXZpZXdJdGVtIH0gZnJvbSAnLi4vLi4vbW9kZWxzL3RyZWV2aWV3LWl0ZW0nO1xyXG5pbXBvcnQgeyBUcmVldmlld0NvbmZpZyB9IGZyb20gJy4uLy4uL21vZGVscy90cmVldmlldy1jb25maWcnO1xyXG5pbXBvcnQgeyBUcmVldmlld0NvbXBvbmVudCB9IGZyb20gJy4uL3RyZWV2aWV3L3RyZWV2aWV3LmNvbXBvbmVudCc7XHJcbmltcG9ydCB7IFRyZWV2aWV3SGVhZGVyVGVtcGxhdGVDb250ZXh0IH0gZnJvbSAnLi4vLi4vbW9kZWxzL3RyZWV2aWV3LWhlYWRlci10ZW1wbGF0ZS1jb250ZXh0JztcclxuaW1wb3J0IHsgVHJlZXZpZXdJdGVtVGVtcGxhdGVDb250ZXh0IH0gZnJvbSAnLi4vLi4vbW9kZWxzL3RyZWV2aWV3LWl0ZW0tdGVtcGxhdGUtY29udGV4dCc7XHJcblxyXG5AQ29tcG9uZW50KHtcclxuICBzZWxlY3RvcjogJ25neC1kcm9wZG93bi10cmVldmlldycsXHJcbiAgdGVtcGxhdGVVcmw6ICcuL2Ryb3Bkb3duLXRyZWV2aWV3LmNvbXBvbmVudC5odG1sJyxcclxuICBzdHlsZVVybHM6IFsnLi9kcm9wZG93bi10cmVldmlldy5jb21wb25lbnQuc2NzcyddXHJcbn0pXHJcbmV4cG9ydCBjbGFzcyBEcm9wZG93blRyZWV2aWV3Q29tcG9uZW50IHtcclxuICBASW5wdXQoKSBidXR0b25DbGFzcyA9ICdidG4tb3V0bGluZS1zZWNvbmRhcnknO1xyXG4gIEBJbnB1dCgpIGhlYWRlclRlbXBsYXRlOiBUZW1wbGF0ZVJlZjxUcmVldmlld0hlYWRlclRlbXBsYXRlQ29udGV4dD47XHJcbiAgQElucHV0KCkgaXRlbVRlbXBsYXRlOiBUZW1wbGF0ZVJlZjxUcmVldmlld0l0ZW1UZW1wbGF0ZUNvbnRleHQ+O1xyXG4gIEBJbnB1dCgpIGl0ZW1zOiBUcmVldmlld0l0ZW1bXTtcclxuICBASW5wdXQoKSBjb25maWc6IFRyZWV2aWV3Q29uZmlnO1xyXG4gIEBPdXRwdXQoKSBzZWxlY3RlZENoYW5nZSA9IG5ldyBFdmVudEVtaXR0ZXI8YW55W10+KHRydWUpO1xyXG4gIEBPdXRwdXQoKSBmaWx0ZXJDaGFuZ2UgPSBuZXcgRXZlbnRFbWl0dGVyPHN0cmluZz4oKTtcclxuICBAVmlld0NoaWxkKFRyZWV2aWV3Q29tcG9uZW50LCB7IHN0YXRpYzogZmFsc2UgfSkgdHJlZXZpZXdDb21wb25lbnQ6IFRyZWV2aWV3Q29tcG9uZW50O1xyXG4gIGJ1dHRvbkxhYmVsOiBzdHJpbmc7XHJcblxyXG4gIGNvbnN0cnVjdG9yKFxyXG4gICAgcHVibGljIGkxOG46IFRyZWV2aWV3STE4bixcclxuICAgIHByaXZhdGUgZGVmYXVsdENvbmZpZzogVHJlZXZpZXdDb25maWdcclxuICApIHtcclxuICAgIHRoaXMuY29uZmlnID0gdGhpcy5kZWZhdWx0Q29uZmlnO1xyXG4gIH1cclxuXHJcbiAgb25TZWxlY3RlZENoYW5nZSh2YWx1ZXM6IGFueVtdKTogdm9pZCB7XHJcbiAgICB0aGlzLmJ1dHRvbkxhYmVsID0gdGhpcy5pMThuLmdldFRleHQodGhpcy50cmVldmlld0NvbXBvbmVudC5zZWxlY3Rpb24pO1xyXG4gICAgdGhpcy5zZWxlY3RlZENoYW5nZS5lbWl0KHZhbHVlcyk7XHJcbiAgfVxyXG5cclxuICBvbkZpbHRlckNoYW5nZSh0ZXh0OiBzdHJpbmcpOiB2b2lkIHtcclxuICAgIHRoaXMuZmlsdGVyQ2hhbmdlLmVtaXQodGV4dCk7XHJcbiAgfVxyXG59XHJcbiIsIjxkaXYgY2xhc3M9XCJkcm9wZG93blwiIG5neERyb3Bkb3duPlxyXG4gIDxidXR0b24gY2xhc3M9XCJidG5cIiBbbmdDbGFzc109XCJidXR0b25DbGFzc1wiIHR5cGU9XCJidXR0b25cIiByb2xlPVwiYnV0dG9uXCIgbmd4RHJvcGRvd25Ub2dnbGU+XHJcbiAgICB7e2J1dHRvbkxhYmVsfX1cclxuICA8L2J1dHRvbj5cclxuICA8ZGl2IG5neERyb3Bkb3duTWVudSBhcmlhLWxhYmVsbGVkYnk9XCJkcm9wZG93bk1lbnVcIiAoY2xpY2spPVwiJGV2ZW50LnN0b3BQcm9wYWdhdGlvbigpXCI+XHJcbiAgICA8ZGl2IGNsYXNzPVwiZHJvcGRvd24tY29udGFpbmVyXCI+XHJcbiAgICAgIDxuZ3gtdHJlZXZpZXcgW2NvbmZpZ109XCJjb25maWdcIiBbaGVhZGVyVGVtcGxhdGVdPVwiaGVhZGVyVGVtcGxhdGVcIiBbaXRlbXNdPVwiaXRlbXNcIiBbaXRlbVRlbXBsYXRlXT1cIml0ZW1UZW1wbGF0ZVwiXHJcbiAgICAgICAgKHNlbGVjdGVkQ2hhbmdlKT1cIm9uU2VsZWN0ZWRDaGFuZ2UoJGV2ZW50KVwiIChmaWx0ZXJDaGFuZ2UpPVwib25GaWx0ZXJDaGFuZ2UoJGV2ZW50KVwiPlxyXG4gICAgICA8L25neC10cmVldmlldz5cclxuICAgIDwvZGl2PlxyXG4gIDwvZGl2PlxyXG48L2Rpdj5cclxuIl19
